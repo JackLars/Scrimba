@@ -13,6 +13,7 @@
     </head>
     <body>
         <div id="container" class="container">
+            
             <div class="theme-switch">
                 <span>Switch theme</span>
                 <label class="switch">
@@ -20,15 +21,40 @@
                     <span class="slider round"></span>
                 </label>
             </div>
+            
             <div class="description">
                 <h1>Generate a <span class="colored-text">random password</span></h1>
                 <p>Never use an insecure password again.</p>
-              <button class="btn" onclick="generatePass()">Generate passwords</button>
+
+                <div class="password-configuration">
+                    <div class="password-length">
+                        <label>Password length:</label>
+                        <input id="password-value" type="text" placeholder="15">
+                        <span>Minimum password length: 8</span>
+                    </div>
+    
+                    <!-- <div class="">
+                        <div>
+                            <label for="">Include numbers:</label>
+                            <input id="" type="text">
+                        </div>
+                        <div>
+                            <label for="">Include symbols:</label>
+                            <input id="" type="text">
+                        </div>
+                    </div> -->
+                </div>
+
+                <button class="btn" onclick="generatePass()">Generate passwords</button>
             </div>
+
+            
+            
             <div class="passwords">
                 <input id="password" class="password" type="text" placeholder="0" onclick="copyPass()">
                 <!-- <input class="password" type="text" placeholder="0" onclick="copyPass()"> -->
             </div>
+
         </div>
         <script src="index.js" async defer></script>
     </body>

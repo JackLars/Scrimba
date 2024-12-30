@@ -7,9 +7,11 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 
 var whiteTheme = document.getElementById("container");
 var pass = document.getElementById("password");
+var passLength = document.getElementById("password-value");
 let passNumb;
 let nb = characters.length;
 let charNb;
+let passValue;
 
 
 function themeSwitch() {
@@ -22,11 +24,24 @@ function themeSwitch() {
 
 function generatePass() {
     passNumb = "";
-    for(let i = 0; i < 15; i++) {
-        charNb = Math.floor(Math.random()*nb);
-        passNumb = passNumb + characters[charNb];
+
+    if(passLength.value != null & passLength.value >= 8) {
+        passValue = passLength.value;
+        for(let i = 0; i < passValue; i++) {
+            charNb = Math.floor(Math.random()*nb);
+            passNumb = passNumb + characters[charNb];
+        }
+        pass.value = passNumb;
+        console.log(passValue);
+    } else if(passLength.value != null & passLength.value < 8) {
+        console.log("Error");
+    } else {
+        for(let i = 0; i < 15; i++) {
+            charNb = Math.floor(Math.random()*nb);
+            passNumb = passNumb + characters[charNb];
+        }
+        pass.value = passNumb;
     }
-    pass.value = passNumb;
 }
 
 function copyPass() {
