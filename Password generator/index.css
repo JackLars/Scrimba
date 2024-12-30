@@ -1,0 +1,175 @@
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    font-family: 'Karla', serif;
+    font-size: 20px;
+    line-height: 28px;
+    color: #FFFFFF;
+    background-color: #1c1c1c;
+}
+
+
+/* Container design */
+
+.container {
+    position: relative;
+    margin: auto;
+    margin-top: 200px;
+    padding: 115px 52px;
+    width: 650px;
+    height: 550px;
+    background-color: #1f2937;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 5px solid #FFFFFF;
+}
+
+/* Toggle switch position */
+
+.theme-switch {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.theme-switch > span {
+    padding-right: 10px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+/* Theme switch design */
+
+/* Button and inputs design */
+
+.description {
+    padding-bottom: 25px;
+    border-bottom: solid 1px #2F3E53;
+}
+
+.description h1 {
+    font-size: 40px;
+    line-height: 40px;
+}
+
+.colored-text {
+    color: #10B981;
+}
+
+.description p {
+    color: #D5D4D8;
+}
+
+.btn {
+    padding: 9px 15px;
+    font-size: 20px;
+    line-height: 28px;
+    color: #FFFFFF;
+    background-color: #10B981;
+    border-radius: 6px;
+    border: none;
+}
+
+.passwords {
+    justify-content: space-between;
+    padding-top: 35px;
+}
+
+.passwords input {
+    padding-left: 20px;
+    font-size: 16px;
+    line-height: 32px;
+    border-radius: 6px;
+    color: #55F991;
+    background-color: #273549;
+    border: none;
+}
+
+/* White theme design */
+
+.white-theme {
+    background-color: #ECFDF5;
+    border: 5px solid #6B7280;
+}
+
+.white-theme  .description {
+    color: #111827;
+}
+
+.white-theme p {
+    color: #6B7280;
+}
+
+.white-theme .password {
+    color: #5DEF92;
+    background-color: #273549;
+}
+
+.white-theme span {
+  color: #111827;
+}
