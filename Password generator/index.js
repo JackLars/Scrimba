@@ -4,6 +4,14 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
     "#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"
 ];
 
+const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const symbols = ["~","`","!","@",
+    "#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"];
+const uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T",
+    "U","V","W","X","Y","Z"];
+const lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r",
+    "s","t","u","v","w","x","y","z"];
+
 
 const generatePass = document.getElementById("btn");
 const themeSwitch = document.getElementById("checkbox");
@@ -15,11 +23,13 @@ var passLength = document.getElementById("password-value");
 var passCopied = document.getElementById("password-copy");
 var invalidPass = document.getElementById("invalid-password");
 
-let passNumb;
+let strongPassword;
 let nb = characters.length;
 let charNb;
 let passValue;
 
+
+// Switching theme between dark and light
 
 themeSwitch.addEventListener("click", function(){
     if (whiteTheme.classList.contains("white-theme")) {
@@ -29,28 +39,35 @@ themeSwitch.addEventListener("click", function(){
     }
 });
 
+// Password generating
+
 generatePass.addEventListener("click", function(){
-    passNumb = "";
+    strongPassword = "";
+    pass.value = strongPassword;
     passCopied.classList.remove("visible");
     invalidPass.classList.remove("visible");
 
-    if(passLength.value >= 8 & passLength.value <= 20) {
-        passValue = passLength.value;
-        for(let i = 0; i < passValue; i++) {
-            charNb = Math.floor(Math.random()*nb);
-            passNumb = passNumb + characters[charNb];
-        }
-        pass.value = passNumb;
-    } else if(passLength.value < 8 | passLength.value > 20) {
-        invalidPass.classList.add("visible");
-    } else {
+    if(passLength.value.length == 0){
         for(let i = 0; i < 15; i++) {
             charNb = Math.floor(Math.random()*nb);
-            passNumb = passNumb + characters[charNb];
+            strongPassword = strongPassword + characters[charNb];
         }
-        pass.value = passNumb;
-    }
+        pass.value = strongPassword;
+    } else if(passLength.value >= 8 & passLength.value <= 20) {
+        passValue = passLength.value;
+
+        for(let i = 0; i < passValue; i++) {
+            charNb = Math.floor(Math.random()*nb);
+            strongPassword = strongPassword + characters[charNb];
+        }
+        pass.value = strongPassword;
+
+    } else if(passLength.value < 8 | passLength.value > 20) {
+        invalidPass.classList.add("visible");
+    } 
 });
+
+// Copying password by click
 
 copyPass.addEventListener("click", function(){
     pass.select();
