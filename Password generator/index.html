@@ -17,7 +17,7 @@
             <div class="theme-switch">
                 <span>Switch theme</span>
                 <label class="switch">
-                    <input id="checkbox" type="checkbox" onclick="themeSwitch()">
+                    <input id="checkbox" type="checkbox">
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -29,8 +29,8 @@
                 <div class="password-configuration">
                     <div class="password-length">
                         <label>Password length:</label>
-                        <input id="password-value" type="text" placeholder="15">
-                        <span>Minimum password length: 8</span>
+                        <input id="password-value" type="text" placeholder="">
+                        <span>Min: 8 Max: 20</span>
                     </div>
     
                     <!-- <div class="">
@@ -45,13 +45,15 @@
                     </div> -->
                 </div>
 
-                <button class="btn" onclick="generatePass()">Generate passwords</button>
+                <button id="btn" class="btn">Generate passwords</button>
+                <span id="invalid-password" class="invalid-password">Invalid password length!</span>
             </div>
 
             
             
             <div class="passwords">
-                <input id="password" class="password" type="text" placeholder="0" onclick="copyPass()">
+                <input id="password" class="password" type="text" placeholder="0">
+                <span id="password-copy" class="hided">Password copied!</span>
                 <!-- <input class="password" type="text" placeholder="0" onclick="copyPass()"> -->
             </div>
 

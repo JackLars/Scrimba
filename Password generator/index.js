@@ -5,36 +5,44 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 ];
 
 
+const generatePass = document.getElementById("btn");
+const themeSwitch = document.getElementById("checkbox");
+const copyPass = document.getElementById("password");
+
 var whiteTheme = document.getElementById("container");
 var pass = document.getElementById("password");
 var passLength = document.getElementById("password-value");
+var passCopied = document.getElementById("password-copy");
+var invalidPass = document.getElementById("invalid-password");
+
 let passNumb;
 let nb = characters.length;
 let charNb;
 let passValue;
 
 
-function themeSwitch() {
+themeSwitch.addEventListener("click", function(){
     if (whiteTheme.classList.contains("white-theme")) {
         whiteTheme.classList.remove("white-theme");
     } else {
         whiteTheme.classList.add("white-theme");
     }
-}
+});
 
-function generatePass() {
+generatePass.addEventListener("click", function(){
     passNumb = "";
+    passCopied.classList.remove("visible");
+    invalidPass.classList.remove("visible");
 
-    if(passLength.value != null & passLength.value >= 8) {
+    if(passLength.value >= 8 & passLength.value <= 20) {
         passValue = passLength.value;
         for(let i = 0; i < passValue; i++) {
             charNb = Math.floor(Math.random()*nb);
             passNumb = passNumb + characters[charNb];
         }
         pass.value = passNumb;
-        console.log(passValue);
-    } else if(passLength.value != null & passLength.value < 8) {
-        console.log("Error");
+    } else if(passLength.value < 8 | passLength.value > 20) {
+        invalidPass.classList.add("visible");
     } else {
         for(let i = 0; i < 15; i++) {
             charNb = Math.floor(Math.random()*nb);
@@ -42,9 +50,13 @@ function generatePass() {
         }
         pass.value = passNumb;
     }
-}
+});
 
-function copyPass() {
+copyPass.addEventListener("click", function(){
     pass.select();
     document.execCommand("copy");
-}
+
+    if(pass.value.length >= 8) {
+        passCopied.classList.add("visible");
+    }
+});

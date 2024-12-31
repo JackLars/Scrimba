@@ -126,6 +126,7 @@ body {
 
 .btn {
     padding: 9px 15px;
+    margin-right: 30px;
     font-size: 20px;
     line-height: 28px;
     color: #FFFFFF;
@@ -134,9 +135,14 @@ body {
     border: none;
 }
 
-.btn:hover {
+.btn:active {
     background-color: #065F46;
     border: 2px solid #FFFFFF;
+}
+
+.invalid-password {
+    display: none;
+    color: red;
 }
 
 /* Password configuration section */
@@ -177,12 +183,21 @@ body {
 
 .passwords input {
     padding-left: 20px;
+    margin-right: 50px;
     font-size: 16px;
     line-height: 32px;
     border-radius: 6px;
     color: #55F991;
     background-color: #273549;
     border: none;
+}
+
+.hided {
+    display: none;
+}
+
+.visible {
+    display: inline-block;
 }
 
 /* White theme design */
@@ -214,6 +229,10 @@ body {
     color: #10B981;
 }
 
-.white-theme .btn:hover {
+.white-theme .btn:active {
     border: 2px solid #10B981;
+}
+
+.white-theme .invalid-password {
+    color: red;
 }
